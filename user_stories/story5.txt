@@ -1,0 +1,5 @@
+Story 5
+
+When the user is browsing through trends or outfits, they should be able to add items to their wishlist. The user should be able to access their wishlist at any time, and the app should 
+display clear images of each item. The user should also be able to edit or delete items from their wishlist as needed. If the app experiences any errors, the user should see a message 
+that clearly explains the issue, and the app should provide instructions on how to resolve the issue.
