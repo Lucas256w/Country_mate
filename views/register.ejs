@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/assets/styles.css" type="text/css" />
+</head>
+<body>
+    <div id="right">
+        <div id="title">
+            <h2>Sign Up!</h2>
+            <p>it's quick and easy</p>
+        </div>
+
+        <form action="/register" method="post">
+
+            <input type="text" name="username" id="usernamebox" placeholder="Username">
+
+            <input type="text" name="password" id="passwordbox" placeholder="Password">
+
+            <input type="text" name="confirmPassword" id="confirmPasswordbox" placeholder="Confirm Password">
+            
+            <button type="submit" id="login-button">Register</button>
+        </form>
+        <a href="/login">Login</a>
+    </div>
+</body>
+</html>
