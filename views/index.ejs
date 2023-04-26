@@ -1,1 +1,28 @@
-<h1>HI <%= name %></h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/assets/styles.css" type="text/css" />
+</head>
+<body>
+    <div id="left">
+        <div id="logo">Dress Mate</div>
+        <div id="logo-subtext">Find the outfit for you</div>
+    </div>
+    <div id="right">
+        <h2>Log In!</h2>
+        <form action="/login" method="post">
+            <input type="text" name="username" id="usernamebox" placeholder="Username">
+
+            <input type="text" name="password" id="passwordbox" placeholder="Password">
+
+            <button type="submit" id="login-button">Login</button>
+
+            <a href="/register">Create new account</a>
+        </form>
+    </div>
+</body>
+</html>
