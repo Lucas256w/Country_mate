@@ -53,6 +53,62 @@ form {
     
 }
 
+.card{
+    width: 40%;
+    background-color: #b87878;
+    margin: 100px auto 0;
+    border-radius: 20px;
+    padding: 40px 35px;
+    text-align: center;
+}
+
+.weather-icon {
+    width: 100px;
+    margin-top: 15px;
+    margin-bottom: -10px;
+}
+
+.weather h1{
+    font-size: 40px;
+    font-weight: 250;
+}
+
+.weather h2{
+    font-size: 24px;
+    font-weight: 200;
+    margin-top: -5px;
+}
+
+.details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    margin-top: 25px;
+}
+
+.col{
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+
+.col img{
+    width: 40px;
+    margin-right: 10px;
+}
+
+.weather {
+    display: none;
+}
+
+.error{
+    text-align: left;
+    margin-left: 10px;
+    font-size: 14px;
+    margin-top: 10px;
+    display: none;
+}
 
 
 
