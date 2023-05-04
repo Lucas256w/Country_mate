@@ -70,6 +70,11 @@ app.get('/profile', (req, res) => {
     res.render('profile.ejs', { user: req.user});
 });
 
+app.post('/profile', async (req, res, next) => {
+  res.render('profile.ejs', {user: "Hello"});
+});
+
+
 
 
 app.get('/register', (req, res) => {
@@ -97,6 +102,9 @@ app.get("/log-out", (req, res, next) => {
       res.redirect("/");
     });
   });
+
+app.use(require('./routes/auth'))
+app.use(require('./routes/index'))
 
 passport.use(
     new LocalStrategy(async(username, password, done) => {
@@ -130,6 +138,6 @@ passport.deserializeUser(async function(id, done) {
 
 
 
-  
+
 
 app.listen(process.env.PORT || 3000)

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Document</title>
     <link rel="stylesheet" href="/public/assets/styles.css" type="text/css" />
 </head>
@@ -20,9 +21,54 @@
             <input type="text" name="password" id="passwordbox" placeholder="Password">
 
             <button type="submit" id="login-button">Login</button>
+            <div id="g_id_onload"
+                data-client_id="55176264252-lsvtvartihquu2hf5nguo6n13rok53u7.apps.googleusercontent.com"
+                data-context="signin"
+                data-ux_mode="popup"
+                data-login_uri="http://localhost:3000/profile"
+                data-auto_prompt="false">
+            </div>
+
+            <div class="g_id_signin"
+                data-type="standard"
+                data-shape="rectangular"
+                data-theme="outline"
+                data-text="signin_with"
+                data-size="large"
+                data-logo_alignment="left">
+            </div>
 
             <a href="/register">Create new account</a>
+            
         </form>
     </div>
+
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script>
+        // Initialize the Google API when the page has finished loading
+        window.onload = function() {
+            google.accounts.id.initialize({
+                client_id: "55176264252-lsvtvartihquu2hf5nguo6n13rok53u7.apps.googleusercontent.com",
+                callback: handleCredentialResponse,
+                auto_select: true
+            });
+        };
+    
+        // Handle the credential response after the user has logged in with Google
+        function handleCredentialResponse(response) {
+            if (response.credential) {
+                // Get the user's basic profile information
+                var profile = google.accounts.id.get();
+                var name = profile.name;
+                console.log(name); // Print the user's name to the console
+            }
+        }
+    </script>
+    
+    
+    
+    
+    
 </body>
 </html>
