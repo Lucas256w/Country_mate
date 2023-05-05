@@ -5,72 +5,130 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/public/assets/styles.css" type="text/css" />
+    <link rel="stylesheet" href="/public/assets/profile.css" type="text/css" />
 </head>
 <body>
-    <div class ="card">
+    <header class="logout">
+        <form action="/log-out" method="get"><button>logout</button></form>
+    </header>
+    <div class="search-container">
         <p>Hello <%= user.username %></p>
+        
         <div class="search">
-            <input type="text" placeholder="Enter city name">
-            <button>Search</button> 
+            <input type="text" placeholder="Enter country name">
+            <button>Search</button>
         </div>
         <div class="error">
-            <p>Invalid city name</p>
+            <p>Invalid country name</p>
         </div>
-        <div class = "weather">
-            <img src="/public/images/Rain.png" class="weather-icon" alt="snow">
-            <h1 class="temp">22°c</h1>
-            <h2 class="city">New York</h2>
-            <div class="details">
-                <div class="col">
-                    <img src="/public/images/humidity.png">
-                    <div>
-                        <p class="humidity">50%</p>
-                        <p>Humidity</p>
+    </div>
+    <div class="main">
+        <div class ="card">
+            <div class = "weather">
+                <img src="/public/images/Rain.png" class="weather-icon" alt="snow">
+                <h1 class="temp">22°c</h1>
+                <h2 class="city">New York</h2>
+                <div class="details">
+                    <div class="col">
+                        <img src="/public/images/humidity.png">
+                        <div>
+                            <p class="humidity">50%</p>
+                            <p>Humidity</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col">
-                    <img src="/public/images/wind.png">
-                    <div>
-                        <p class="wind">15 km/h</p>
-                        <p>Wind Speed</p>
+                    <div class="col">
+                        <img src="/public/images/wind.png">
+                        <div>
+                            <p class="wind">15 km/h</p>
+                            <p>Wind Speed</p>
+                        </div>
                     </div>
                 </div>
             </div>
-
+        </div>
+        <div class="card">
+            <img src="/" class="country-flag">
+            <div class="wrapper">
+                <h4 class="capital">Capital: </h4>
+            </div>
+            <div class="wrapper">
+                <h4 class="continent">Continent: </h4>
+            </div>
+            <div class="wrapper">
+                <h4 class="population">Population: </h4>
+            </div>
+            <div class="wrapper">
+                <h4 class="currency">Currency: </h4>
+            </div>
+            <div class="wrapper">
+                <h4 class="languages">Languages: </h4>
+            </div>
         </div>
     </div>
 
     <script>
     const apiKeyWeather = "4fa3f0720ceb21b2300ab7ae8ff03f66";
-    const apiUrlWeather = "https://api.openweathermap.org/data/2.5/weather?&units=metric&q="; 
+    const apiUrlWeather = "https://api.openweathermap.org/data/2.5/weather?&units=metric&q=";
+
+   
+
 
     const searchBox = document.querySelector(".search input");
     const searchButton = document.querySelector(".search button");
-    const weatherIcon = document.querySelector(".weather-icon")
+    const weatherIcon = document.querySelector(".weather-icon");
+    const flagIcon = document.querySelector(".country-flag");
+    
      
     async function checkWeather(city){
-        const response = await fetch(apiUrlWeather + city + `&appid=${apiKeyWeather}`);
 
-        if(response.status == 404){
-            console.log(response.status)
+         const response2 = await fetch(`https://restcountries.com/v3.1/name/${city}?fullText=true`)
+        const response = await fetch(apiUrlWeather + city + `&appid=${apiKeyWeather}`);
+        // const apiUrlCountry = `https://restcountries.com/v3.1/name/${city}?fullText=true`
+
+        if(response2.status == 404){
+            console.log(response2.status)
             document.querySelector(".error").style.display = "block";
             document.querySelector(".weather").style.display = "none";
+            let cards = document.querySelectorAll('.card');
+                cards.forEach(card => {
+                card.style.display = 'none';
+            });
         } else {
+            const apiUrlCountry = `https://restcountries.com/v3.1/name/${city}?fullText=true`
+            var data2 = await response2.json()
             var data = await response.json();
 
+            console.log(data2)
             console.log(data)
+            
 
             document.querySelector(".city").innerHTML = data.name;
             document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°c";
             document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
             document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
 
+
+            document.querySelector(".capital").innerHTML = "Capital: " + data2[0].capital[0];
+            document.querySelector(".continent").innerHTML = "Continent: " + data2[0].continents[0];
+            document.querySelector(".population").innerHTML = "Population: " + data2[0].population;
+            document.querySelector(".currency").innerHTML = "Currency: " + data2[0].currencies[Object.keys(data2[0].currencies)].name + " - " + Object.keys(data2[0].currencies)[0];
+            document.querySelector(".languages").innerHTML = "Languages: " + Object.values(data2[0].
+                                                                            languages)
+                                                                            .toString()
+                                                                            .split(",")
+                                                                            .join(", ");
+
             data.weather[0].main
             weatherIcon.src = `/public/images/${data.weather[0].main}.png`;
+            flagIcon.src = `${data2[0].flags.svg}`
 
             document.querySelector(".weather").style.display = "block";
             document.querySelector(".error").style.display = "none";
+            let cards = document.querySelectorAll('.card');
+                cards.forEach(card => {
+                card.style.display = 'block';
+            });
+
 
 
         } 

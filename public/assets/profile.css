@@ -1,36 +1,25 @@
 body {
     display: flex;
+    flex-direction: column;
     font-family: courier, sans-serif;
     background-color: #e0e1dd;
     height: 100vh;
     justify-content: space-evenly;
     align-items: center;
+    text-align: center;
 }
 
-#logo {
-    font-size: 36px;
-}
-
-
-
-#right {
-    width: 400px;
-    background-color: white;
-    padding: 20px 20px 20px 20px;
-    border-radius: 10px;
-    align-items: center;
-}
-
+.main {
+    /* margin-top: -450px;
+    margin-bottom: -300px; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100vh;
+    flex-grow: 2;
+  }
 
 input[type="text"] {
-    width: 100%;
-    height: 36px;
-    border-radius: 5px;
-    margin: 12px 10px;
-    box-sizing: border-box;
-}
-
-input[type="password"] {
     width: 100%;
     height: 36px;
     border-radius: 5px;
@@ -54,20 +43,16 @@ button:hover {
     transition: 0.1s;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-}
-
 .card{
-    width: 40%;
+
+    width: 300px;
     background-color: #b87878;
     margin: 100px auto 0;
     border-radius: 20px;
     padding: 40px 35px;
     text-align: center;
+    display:none;
+    max-height: 350px;
 }
 
 .weather-icon {
@@ -118,6 +103,24 @@ form {
     display: none;
 }
 
+.country-flag {
+    display: block;
+    width: 45%;
+    min-width: 7.5em;
+    margin: 1.8em auto 1.2em auto;
+    
+}
 
+header {
+    /* margin: -400px; */
+}
+.logout {
+    width: 90vw;
+}
 
+.logout button {
+    width: 100px;
+    float: right;
 
+    
+}

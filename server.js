@@ -71,7 +71,7 @@ app.get('/profile', (req, res) => {
 });
 
 app.post('/profile', async (req, res, next) => {
-  res.render('profile.ejs', {user: "Hello"});
+  res.render('profile.ejs', {user: "Hellosss"});
 });
 
 
