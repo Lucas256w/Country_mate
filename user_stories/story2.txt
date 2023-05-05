@@ -1,6 +1,4 @@
 Story 2 
 
-When the user launches the web app, they should be able to browse through the latest fashion trends. The user can browse by category, including clothing, shoes, accessories, and more.
-The app should display clear images and descriptions of each trend. The user can also filter the trends by their preferences, such as color or style. If the user wants to know more about 
-a particular trend, they can click on it to see more details, including the price, where to buy it, and reviews. If the app experiences any errors, the user should see a message that 
-clearly explains the issue, and the app should provide instructions on how to resolve the issue.
+When the user launches the web app, they should see a search bar in which they can type in the country of their choice. If they type in
+something that is not a country then an error will prop.

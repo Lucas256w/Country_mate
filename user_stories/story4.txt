@@ -1,4 +1,3 @@
 Story 4
 
-When the user is browsing through outfits, they should be able to share them on social media platforms such as Facebook, Twitter, or Instagram. The user should be able to choose which 
-platform they want to share the outfit on, and the app should provide clear instructions on how to share the outfit.
+The user should be able to see a history of the countries they searched and bookmar countries they like in particular

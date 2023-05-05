@@ -1,5 +1,3 @@
 Story 1
 
-As a user, I want to be able to create an account so I can save preferred outfits. I should be able to reset my password and choose to opt for notifications on the web app. 
-Creating an account requires a first name, last name, and an email address. Resetting the password would mean entering an email address. Notifications would alert me of current trends
-with corresponding outfits to go along with said trends.
+As a user, I want to be able to create an account so I can use the web aop. The registration process will require a username and a password

@@ -1,5 +1,4 @@
 Story 3
 
-When the user launches the web app, they should be prompted to answer a series of questions about their personal style, body type, color preferences, and budget. The app should then use 
-this information to suggest outfits that are tailored to the user's personal preferences. The app should provide clear images of each outfit, along with descriptions of each item in the 
-outfit. If the user doesn't like a particular outfit, they should be able to provide feedback so that the app can improve its recommendations in the future
+When A country name is type is will show information about the country's weather and basic information about the country such as capital, 
+currecny used, language, etc.
